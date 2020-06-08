@@ -1,10 +1,13 @@
 package org.example;
 
+import org.junit.Assert;
 import org.junit.Test;
 
-public class GoodsTest {
+public class CommodityTest {
     @Test
-    public void should_get_quality_and_value() {
-        new Goods()
+    public void should_get_sell_in_and_quality() {
+        Commodity commodity = new Commodity("name", 10, 20);
+        Assert.assertEquals(10, commodity.getSellIn());
+        Assert.assertEquals(20, commodity.getQuality());
     }
 }
