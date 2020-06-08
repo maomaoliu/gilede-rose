@@ -18,4 +18,8 @@ public class Commodity {
     public int getQuality() {
         return quality;
     }
+
+    public void update() {
+        this.sellIn -= 1;
+    }
 }

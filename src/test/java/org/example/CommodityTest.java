@@ -10,4 +10,11 @@ public class CommodityTest {
         Assert.assertEquals(10, commodity.getSellIn());
         Assert.assertEquals(20, commodity.getQuality());
     }
+
+    @Test
+    public void should_update_sellIn() {
+        Commodity commodity = new Commodity("name", 10, 20);
+        commodity.update();
+        Assert.assertEquals(9, commodity.getSellIn());
+    }
 }
