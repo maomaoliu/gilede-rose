@@ -21,28 +21,46 @@ public class Commodity {
     }
 
     public void update() {
-        this.sellIn -= 1;
+        decreaseSellIn();
+        updateQuality();
+        limitQuality();
+    }
 
-        if (this.name.equals(BACKSTAGE)){
-            if (this.sellIn <= 0) {
-                this.quality = 0;
-            } else if (this.sellIn <= 5) {
-                this.quality += 3;
-            } else if (this.sellIn <= 10) {
-                this.quality += 2;
-            }
-        } else {
-            if (this.sellIn <= 0) {
-                this.quality -= 2;
-            } else {
-                this.quality -= 1;
-            }
-        }
-
+    private void limitQuality() {
         if (this.quality > 50) {
             this.quality = 50;
         } else if (this.quality < 0) {
             this.quality = 0;
+        }
+    }
+
+    private void updateQuality() {
+        if (this.name.equals(BACKSTAGE)){
+            applyBackstageQualityRules();
+        } else {
+            applyNormalQualityRules();
+        }
+    }
+
+    private void decreaseSellIn() {
+        this.sellIn -= 1;
+    }
+
+    private void applyNormalQualityRules() {
+        if (this.sellIn <= 0) {
+            this.quality -= 2;
+        } else {
+            this.quality -= 1;
+        }
+    }
+
+    private void applyBackstageQualityRules() {
+        if (this.sellIn <= 0) {
+            this.quality = 0;
+        } else if (this.sellIn <= 5) {
+            this.quality += 3;
+        } else if (this.sellIn <= 10) {
+            this.quality += 2;
         }
     }
 }
