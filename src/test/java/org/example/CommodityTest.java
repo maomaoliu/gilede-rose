@@ -53,4 +53,11 @@ public class CommodityTest {
         Assert.assertEquals(50, commodity.getQuality());
     }
 
+    @Test
+    public void should_get_0_quality_when_sellIn_is_1_and_commodity_is_backstage() {
+        Commodity commodity = new Commodity("Backstage", 1, 20);
+        commodity.update();
+        Assert.assertEquals(0, commodity.getQuality());
+    }
+
 }
