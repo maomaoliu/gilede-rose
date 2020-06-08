@@ -39,4 +39,18 @@ public class CommodityTest {
         Assert.assertEquals(50, commodity.getQuality());
     }
 
+    @Test
+    public void should_increase_quality_by_3_when_sellIn_is_6_and_commodity_is_backstage() {
+        Commodity commodity = new Commodity("Backstage", 6, 20);
+        commodity.update();
+        Assert.assertEquals(23, commodity.getQuality());
+    }
+
+    @Test
+    public void should_not_make_quality_greater_than_50_when_sellIn_is_6_and_commodity_is_backstage() {
+        Commodity commodity = new Commodity("Backstage", 6, 49);
+        commodity.update();
+        Assert.assertEquals(50, commodity.getQuality());
+    }
+
 }
