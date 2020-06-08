@@ -3,6 +3,8 @@ package org.example;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static org.example.Commodity.BACKSTAGE;
+
 public class CommodityTest {
     @Test
     public void should_get_sell_in_and_quality() {
@@ -20,42 +22,42 @@ public class CommodityTest {
 
     @Test
     public void should_not_change_quality_when_sellIn_is_12_and_commodity_is_backstage() {
-        Commodity commodity = new Commodity("Backstage", 12, 20);
+        Commodity commodity = new Commodity(BACKSTAGE, 12, 20);
         commodity.update();
         Assert.assertEquals(20, commodity.getQuality());
     }
 
     @Test
     public void should_increase_quality_by_2_when_sellIn_is_11_and_commodity_is_backstage() {
-        Commodity commodity = new Commodity("Backstage", 11, 20);
+        Commodity commodity = new Commodity(BACKSTAGE, 11, 20);
         commodity.update();
         Assert.assertEquals(22, commodity.getQuality());
     }
 
     @Test
     public void should_not_make_quality_greater_than_50_when_sellIn_is_11_and_commodity_is_backstage() {
-        Commodity commodity = new Commodity("Backstage", 11, 49);
+        Commodity commodity = new Commodity(BACKSTAGE, 11, 49);
         commodity.update();
         Assert.assertEquals(50, commodity.getQuality());
     }
 
     @Test
     public void should_increase_quality_by_3_when_sellIn_is_6_and_commodity_is_backstage() {
-        Commodity commodity = new Commodity("Backstage", 6, 20);
+        Commodity commodity = new Commodity(BACKSTAGE, 6, 20);
         commodity.update();
         Assert.assertEquals(23, commodity.getQuality());
     }
 
     @Test
     public void should_not_make_quality_greater_than_50_when_sellIn_is_6_and_commodity_is_backstage() {
-        Commodity commodity = new Commodity("Backstage", 6, 49);
+        Commodity commodity = new Commodity(BACKSTAGE, 6, 49);
         commodity.update();
         Assert.assertEquals(50, commodity.getQuality());
     }
 
     @Test
     public void should_get_0_quality_when_sellIn_is_1_and_commodity_is_backstage() {
-        Commodity commodity = new Commodity("Backstage", 1, 20);
+        Commodity commodity = new Commodity(BACKSTAGE, 1, 20);
         commodity.update();
         Assert.assertEquals(0, commodity.getQuality());
     }
