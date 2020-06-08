@@ -60,4 +60,18 @@ public class CommodityTest {
         Assert.assertEquals(0, commodity.getQuality());
     }
 
+    @Test
+    public void should_decrease_quality_by_2_when_sellIn_is_1_and_commodity_is_sword() {
+        Commodity commodity = new Commodity("Sword", 1, 20);
+        commodity.update();
+        Assert.assertEquals(18, commodity.getQuality());
+    }
+
+    @Test
+    public void should_get_0_quality_when_sellIn_is_1_and_commodity_is_sword() {
+        Commodity commodity = new Commodity("Sword", 1, 1);
+        commodity.update();
+        Assert.assertEquals(0, commodity.getQuality());
+    }
+
 }

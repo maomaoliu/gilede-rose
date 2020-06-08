@@ -1,6 +1,7 @@
 package org.example;
 
 public class Commodity {
+    public static final String BACKSTAGE = "Backstage";
     private String name;
     private int sellIn;
     private int quality;
@@ -22,16 +23,24 @@ public class Commodity {
     public void update() {
         this.sellIn -= 1;
 
-        if (this.sellIn <= 0) {
-            this.quality = 0;
-        } else if (this.sellIn <= 5) {
-            this.quality += 3;
-        } else if (this.sellIn <= 10) {
-            this.quality += 2;
+        if (this.name.equals(BACKSTAGE)){
+            if (this.sellIn <= 0) {
+                this.quality = 0;
+            } else if (this.sellIn <= 5) {
+                this.quality += 3;
+            } else if (this.sellIn <= 10) {
+                this.quality += 2;
+            }
+        } else {
+            if (this.sellIn <= 0) {
+                this.quality -= 2;
+            }
         }
 
         if (this.quality > 50) {
             this.quality = 50;
+        } else if (this.quality < 0) {
+            this.quality = 0;
         }
     }
 }
