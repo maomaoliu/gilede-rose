@@ -34,6 +34,8 @@ public class Commodity {
         } else {
             if (this.sellIn <= 0) {
                 this.quality -= 2;
+            } else {
+                this.quality -= 1;
             }
         }
 
