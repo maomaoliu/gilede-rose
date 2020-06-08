@@ -1,4 +1,4 @@
-package org.example;
+package org.example.gilederose;
 
 import org.junit.Assert;
 import org.junit.Test;

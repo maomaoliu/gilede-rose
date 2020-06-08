@@ -1,4 +1,4 @@
-package org.example;
+package org.example.gilederose;
 
 public class Backstage extends Commodity {
     private static final String BACKSTAGE = "Backstage";

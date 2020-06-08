@@ -1,4 +1,4 @@
-package org.example;
+package org.example.gilederose;
 
 public abstract class Commodity {
     private String name;

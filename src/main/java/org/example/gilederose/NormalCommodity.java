@@ -1,4 +1,4 @@
-package org.example;
+package org.example.gilederose;
 
 public class NormalCommodity extends Commodity {
     public NormalCommodity(String name, int sellIn, int quality) {
